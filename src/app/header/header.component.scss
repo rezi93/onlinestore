@@ -1,0 +1,17 @@
+.navbar-light .navbar-nav .nav-link
+{
+    color: rgb(255, 255, 255);
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-light .navbar-nav .nav-link.active-link
+{
+    color: rgb(23, 23, 102);
+    text-decoration: underline;
+}
+#nav-ul{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
