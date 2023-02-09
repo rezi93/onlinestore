@@ -13,19 +13,39 @@ import { HttpClient } from '@angular/common/http';
 export class ProductDetailsComponent implements OnInit {
 
    product:IProduct|undefined
-   productID!:string|null
    productData:any
+   productID!:any
+   
   constructor(private _act: ActivatedRoute,
-    private _route: Router, private _http: HttpClient){}
+    private _route: Router, private _http: HttpClient, private service: PruductService){}
+
+    
     ngOnInit(): void {
      this.productID=this._act.snapshot.paramMap.get("id");
-     this._http.get('https://fakestoreapi.com/products/ '+this.productID+'/ ')
-    
-     .subscribe(data=>{
-this.productData=data
+
+     this.service.getProduct(this.productID).subscribe(data=>{
+      this.productData=data
      })
+    //  this._http.get('https://fakestoreapi.com/products/ '+this.productID+'/ ')
+//     this._act.data.pipe(
+//       map(data=>getProductById())
+//     )
+//      .subscribe(data=>{
+// this.productData=data
+//      })
+// this.getProductById(this.productID)
     }
   goback(){
     this._route.navigate(['Home'])
   }
-}
+
+//  getProductById(productID:any){
+  
+//   this.service.getProduct(productID)
+//   .subscribe(data=>{
+//   this.productData=data
+//        })
+
+//       }
+    }
+
