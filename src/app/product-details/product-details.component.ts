@@ -23,9 +23,8 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit(): void {
      this.productID=this._act.snapshot.paramMap.get("id");
 
-     this.service.getProduct(this.productID).subscribe(data=>{
-      this.productData=data
-     })
+     this.getProductById(this.productID)
+    
     //  this._http.get('https://fakestoreapi.com/products/ '+this.productID+'/ ')
 //     this._act.data.pipe(
 //       map(data=>getProductById())
@@ -39,13 +38,14 @@ export class ProductDetailsComponent implements OnInit {
     this._route.navigate(['Home'])
   }
 
-//  getProductById(productID:any){
+ getProductById(productID:any){
   
-//   this.service.getProduct(productID)
-//   .subscribe(data=>{
-//   this.productData=data
-//        })
+  this.service.getProduct(productID)
+  .subscribe(data=>{
+  this.productData=data
+       })
 
-//       }
+      }
     }
+  
 

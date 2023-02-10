@@ -27,7 +27,7 @@ export class PruductService {
 
       getProduct(id:any):Observable<IProduct[]>{
         
-        return  this._http.get<IProduct[]>('https://fakestoreapi.com/products/ '+this.productID+'/ ')
+        return  this._http.get<IProduct[]>('https://fakestoreapi.com/products/ '+id+'/ ')
       }
 
       
