@@ -15,6 +15,7 @@ export class ProductDetailsComponent implements OnInit {
    product:IProduct|undefined
    productData:any
    productID!:any
+   itemData:any
    
   constructor(private _act: ActivatedRoute,
     private _route: Router, private _http: HttpClient, private service: PruductService){}
@@ -23,19 +24,14 @@ export class ProductDetailsComponent implements OnInit {
     ngOnInit(): void {
      this.productID=this._act.snapshot.paramMap.get("id");
 
-     this.getProductById(this.productID)
+     this.getProductById(this.productID);
+
+    //  this.getCart(this.productID)
     
-    //  this._http.get('https://fakestoreapi.com/products/ '+this.productID+'/ ')
-//     this._act.data.pipe(
-//       map(data=>getProductById())
-//     )
-//      .subscribe(data=>{
-// this.productData=data
-//      })
-// this.getProductById(this.productID)
+    
     }
   goback(){
-    this._route.navigate(['Home'])
+    this._route.navigate(['/products'])
   }
 
  getProductById(productID:any){
@@ -46,6 +42,19 @@ export class ProductDetailsComponent implements OnInit {
        })
 
       }
+
+      // getCart(productID:any){
+      //   this.service.getProduct(productID)
+      //   .subscribe(data=>{
+      //   this.itemData=data
+      //        })
+
+      // }
+
+      // addToCart(itemData: IProduct){
+      //   this.service.addToCart(itemData);
+      //   alert('hello')
+      // }
     }
   
 

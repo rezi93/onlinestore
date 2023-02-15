@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {CardModule} from 'primeng/card';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +18,18 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     ProductDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    InputTextModule,
+    CardModule
+    
     
   ],
   providers: [],

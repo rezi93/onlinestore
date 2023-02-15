@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ICategory } from '../interface/product';
 import { IProduct } from '../interface/product';
 import { PruductService } from '../service/pruduct.service';
+import {InputTextModule} from 'primeng/inputtext';
 
 
 @Component({
@@ -12,14 +13,18 @@ import { PruductService } from '../service/pruduct.service';
 })
 export class HomeComponent implements OnInit {
   product:IProduct[]=[];
+  category: ICategory[]=[]
+  
 
   constructor(private _service: PruductService,
     private _route: Router){}
 
     ngOnInit() {
-      this. _service.getProductList().subscribe((result:IProduct[])=>{
-        this.product=result
-      })
+      this.getproduct();
+
+      
+   
+      
     }
 
     setClas(cat:string): string {
@@ -43,10 +48,35 @@ export class HomeComponent implements OnInit {
       return clasname
     }
 
+    getproduct(){
+      this. _service.getProductList().subscribe((result:IProduct[])=>{
+        this.product=result
+      })
+    }
+
     detailsPage(productID:number){
    this._route.navigate(['/products/',productID])
    
    
     }
 
+    getResult(){
+      this._service.searchProduct(this.category).subscribe(result=>this.product=result)
+      
+    }
+
+
+    addToCart(){
+      this._service.addToCart();
+      alert('product successfully add to cart')
+    }
+
+    
+    
+
+
+  
+
 }
+
+

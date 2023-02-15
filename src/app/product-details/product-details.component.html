@@ -1,6 +1,30 @@
 
 
-<div class="wrapper row" *ngIf="productData">
+<p-card header="Simple Card" [style]="{'width': '25rem', 'margin-bottom': '2em'}" *ngIf="productData">
+    <div class="mt-2 mb-2">
+        <button class="btn btn-outline-primary" (click)="goback()" > <i class="bi bi-arrow-left"></i> </button>
+    </div>
+    <ng-template pTemplate="header">
+        <img [src]="productData.thumbnail" class="single-img" alt="main-img"/>
+        <ul class="preview-thumbnail nav nav-tabs">
+            <li *ngFor="let img of productData.images"><img [src]="img" alt='img'/></li>
+          </ul>
+    </ng-template>
+    <h3 class="product-title">{{productData.title}}</h3>
+    <p class="product-description">{{productData.description}}</p>
+    <span>{{productData.category}}</span>
+    <h4 class="price">
+        price: 
+        <span>{{productData.price | currency }}</span>
+       
+    </h4>
+    <div class="action">
+        <button class="add-to-cart btn btn-default" type="button"><i class="bi bi-cart me-2"></i>Add to cart</button>
+    </div>
+</p-card>
+
+
+<!-- <div class="wrapper row" *ngIf="productData">
     <div class="preview col-md-6">
         <div class="mt-2 mb-2">
             <button class="btn btn-outline-primary" (click)="goback()" > <i class="bi bi-arrow-left"></i> </button>
@@ -24,4 +48,4 @@
         <div class="action">
             <button class="add-to-cart btn btn-default" type="button"><i class="bi bi-cart me-2"></i>Add to cart</button>
         </div>
-    </div>
+    </div> -->
