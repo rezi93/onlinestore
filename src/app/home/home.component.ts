@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       this.getproduct();
 
-      
+     
    
       
     }
@@ -68,7 +68,9 @@ export class HomeComponent implements OnInit {
 
     addToCart(){
       this._service.addToCart();
-      alert('product successfully add to cart')
+      alert('product successfully add to cart');
+      
+      
     }
 
     

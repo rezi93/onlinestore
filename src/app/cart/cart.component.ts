@@ -12,6 +12,8 @@ import { PruductService } from '../service/pruduct.service';
 export class CartComponent implements OnInit {
 
   items:any;
+  cartItems:IProduct[]=[]
+  cartCount: any;
 
   constructor(private Service: PruductService){
 
@@ -19,6 +21,23 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.items=this.Service.getItems();
+    this.getCArtItems(this.cartItems)
+
+    this.cartCount = this.Service.getcartCounter();
+  }
+
+  getCArtItems(productID:any){
+    this.Service.cartItem(productID).subscribe(items=>{this.cartItems=items})
+  }
+
+
+
+  // counter
+
+  getCounter(){
+    this.Service.getcartCounter().subscribe(count => {
+      console.log(`Cart count: ${count}`);
+    });
   }
 
 }
