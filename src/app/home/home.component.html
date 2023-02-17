@@ -2,8 +2,8 @@
   <div class="col-12 md:col-4">
       <div class="p-inputgroup">
           
-          <input type="text" pInputText placeholder="Keyword" [(ngModel)]="category"> 
-          <button type="button" class="p-btn" pButton pRipple label="Search"  (click)="getResult()">Search</button>        
+          <input type="text" pInputText placeholder="Keyword" (keyup)="getResult()" [(ngModel)]="category"> 
+          <!-- <button type="button" class="p-btn" pButton pRipple label="Search"  (click)="getResult()">Search</button>         -->
       </div>
   </div>
 
@@ -26,7 +26,7 @@
   <button class="det-btn">
     <a (click)="detailsPage(item.id)" >Details</a>
     </button>
-    <button class="add-btn"  type="button" (click)="addToCart()"><i class="bi bi-cart me-2"></i>Add to cart</button>
+    <button class="add-btn"  type="button" (click)="addToCart(item)"><i class="bi bi-cart me-2"></i>Add to cart</button>
 </div>
 </p-card>
 </div>
