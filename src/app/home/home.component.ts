@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from '../interface/product';
 import { IProduct } from '../interface/product';
@@ -22,9 +22,6 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       this.getproduct();
 
-     
-   
-      
     }
 
     setClas(cat:string): string {
@@ -66,11 +63,10 @@ export class HomeComponent implements OnInit {
     }
 
 
-    addToCart(){
-      this._service.addToCart();
+    addToCart(product:IProduct){
+      this._service.addToCart(product);
       alert('product successfully add to cart');
-      
-      
+   
     }
 
     
