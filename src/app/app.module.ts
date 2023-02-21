@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {CardModule} from 'primeng/card';
 import { CartComponent } from './cart/cart.component';
+import {TabViewModule} from 'primeng/tabview';
+import { CategoryComponent } from './category/category.component';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -20,6 +23,8 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailsComponent,
     HomeComponent,
     CartComponent,
+    CategoryComponent,
+    
    
   ],
   imports: [
@@ -28,7 +33,11 @@ import { CartComponent } from './cart/cart.component';
     FormsModule,
     HttpClientModule,
     InputTextModule,
-    CardModule
+    CardModule,
+    TabViewModule,
+    ButtonModule
+   
+   
     
     
   ],

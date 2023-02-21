@@ -1,0 +1,27 @@
+<div class="card">
+    
+    <div style="padding: .5em 0 1em 0">
+        <p-button (click)="activeIndex2 = 0" styleClass="p-button-text" label="Activate 1rd"></p-button>
+        <p-button (click)="activeIndex2 = 29" styleClass="p-button-text" label="Activate 30th" [style]="{'margin-left': '.5em'}"></p-button>
+        <p-button (click)="activeIndex2 = 49" styleClass="p-button-text" label="Activate 50th" [style]="{'margin-left': '.5em'}"></p-button>
+    </div>
+
+    <p-tabView [(activeIndex)]="activeIndex2" [scrollable]="true">
+        <p-tabPanel *ngFor="let tab of scrollableTabs;" [header]="tab.label">
+            
+            <p-card header="" [style]="{'width': '500px', 'height':'200px', 'margin-top': '2em', 'margin-left':'2rem','display':'grid','grid-template-columns':' auto auto '}" *ngFor="let items of catproduct">
+
+              
+                    <p>{{items.category}}</p>
+                  
+                  <img src="{{items.thumbnail}}" class="picture">
+                
+               
+                
+              
+              </p-card>
+        </p-tabPanel>
+    </p-tabView>
+
+    
+</div>

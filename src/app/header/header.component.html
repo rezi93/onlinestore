@@ -4,15 +4,25 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-4">
+            <div class="p-inputgroup">
+                
+                <input class="search-input" type="text" pInputText placeholder="Search" (keyup)="getResult()" [(ngModel)]="category"> 
+      
+            </div>
+        </div>
+      </div>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto" id="nav-ul">
           <li class="nav-item">
             <a class="nav-link" routerLink="./"  routerLinkActive="active-link"  >Home</a>
           </li>
           
-          <li class="nav-item">
-    this.cartSize=this.service.getcartCounter()
-            <a class="nav-link" routerLink="./add-cart" routerLinkActive="active-link">Cart</a>
+          <li class="nav-item" >
+    
+            <a class="nav-link" routerLink="./add-cart" routerLinkActive="active-link"><span><i class="bi bi-cart me-2"></i><p *ngIf="cartItems">{{ cartCount.length }}</p></span></a>
           </li>
         
          

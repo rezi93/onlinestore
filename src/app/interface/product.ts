@@ -2,12 +2,7 @@ export interface IProduct {
     
         
 
-      //   id: number,
-      // title: string,
-      // price: number,
-      // category: string,
-      // description: string,
-      // image:string
+      
 
       id: number,
       title: string,
@@ -23,10 +18,32 @@ export interface IProduct {
 }
 
 export enum ICategory{
-          ELECTRONICS="ELE",
-          JEWELERY="jewelery",
-          MEN= "men",
-          WOMEN="women"
+  smartphones="smartphones",
+  laptops="laptops",
+  fragrances="fragrances",
+  skincare="skincare",
+  groceries="groceries",
+  homedecoration="home-decoration",
+  furniture="furniture",
+  tops="tops",
+  
+  womendresses="womens-dresses",
+  womenshoes="womens-shoes",
+  menshirts="mens-shirts",
+  menshoes="mens-shoes",
+  menwatches="mens-watches",
+  womenwatches="womens-watches",
+  womenbags="womens-bags",
+  womenjewellery="womens-jewellery",
+  sunglasses="sunglasses",
+  automotive="automotive",
+  motorcycle="motorcycle",
+  lighting="lighting"
+}
+
+export interface IMenuItem{
+  label:string,
+  icon:string
 }
 
 export interface IBaseResponsive{

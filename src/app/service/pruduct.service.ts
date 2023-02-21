@@ -59,4 +59,10 @@ export class PruductService {
     return this.items.length;
   }
 
+
+  getProductByCat(category:any): Observable<IProduct[]> {
+
+    return this._http.get<IProduct[]>('https://dummyjson.com/products/categories/'+category+'/ ').pipe(map(data => data))
+  }
+
 }

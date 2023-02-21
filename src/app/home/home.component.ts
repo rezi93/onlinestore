@@ -1,9 +1,11 @@
 import { Component, OnInit,  } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from '../interface/product';
-import { IProduct } from '../interface/product';
+import { IProduct,IMenuItem } from '../interface/product';
 import { PruductService } from '../service/pruduct.service';
 import {InputTextModule} from 'primeng/inputtext';
+import {MenuItem} from 'primeng/api';
+import {TabViewModule} from 'primeng/tabview';
 
 
 @Component({
@@ -13,37 +15,27 @@ import {InputTextModule} from 'primeng/inputtext';
 })
 export class HomeComponent implements OnInit {
   product:IProduct[]=[];
-  category: ICategory[]=[]
+  category: IMenuItem[]=[]
+  
+  
+  
   
 
   constructor(private _service: PruductService,
-    private _route: Router){}
+    private _route: Router){
+     
+      
+      
+    }
 
     ngOnInit() {
       this.getproduct();
+      
+    
 
     }
 
-    setClas(cat:string): string {
-      let clasname:string=''
-      cat=cat.toUpperCase();
-      switch(cat){
-        case ICategory.MEN:
-          clasname='men';
-          break;
-          case ICategory.WOMEN:
-          clasname='women';
-          break;
-          case ICategory.JEWELERY:
-          clasname='jewelery';
-          break;
-          case ICategory.ELECTRONICS:
-          clasname='electronics';
-          break;
-          default: clasname=''
-      }
-      return clasname
-    }
+    
 
     getproduct(){
       this. _service.getProductList().subscribe((result:IProduct[])=>{
@@ -57,17 +49,26 @@ export class HomeComponent implements OnInit {
    
     }
 
-    getResult(){
-      this._service.searchProduct(this.category).subscribe(result=>this.product=result)
+    catPage(category:any){
+      this._route.navigate(['/category/',category])
       
+      
+       }
+
+       handleChange(e:any) {
+        var index = e.index;
     }
 
+   
 
-    addToCart(product:IProduct){
+
+    addToCart(product:IProduct): void{
       this._service.addToCart(product);
       alert('product successfully add to cart');
    
     }
+
+   
 
     
     
