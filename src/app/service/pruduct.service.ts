@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { ICategory, IProduct, IBaseResponsive } from '../interface/product';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, tap, concatMap, Subject } from 'rxjs';
+import { Observable, map, tap, concatMap, Subject,BehaviorSubject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
+
+type NewType = Number;
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,7 @@ export class PruductService {
   items: IProduct[] = []
   product: IProduct[] = [];
   productData: any
-  item: any;
+  item=new BehaviorSubject<any>([])
 
   constructor(private _http: HttpClient, private _route: ActivatedRoute) { }
   getProductList(): Observable<IProduct[]> {
@@ -36,27 +38,43 @@ export class PruductService {
     }).pipe(map(data => data.products))
   }
 
-  // add-cart function
-
-  // cartItem(id: any): Observable<IProduct[]> {
-
-  //   return this._http.get<IProduct[]>('https://dummyjson.com/products/' + id + '/ ')
-  // }
+ 
+  
   addToCart(product: IProduct) {
     this.items.push(product)
+    
+   
     console.log(this.items)
+    
+
   }
 
   getItems() {
+    
     return this.items
   }
 
-  // cart counter
+  getTotalPrice():number{
+let grandtotal=0;
+this.items.map((a:any,index:any)=>{
+  grandtotal+=a.total;
+  
+})
+return grandtotal;
+  }
 
-  // cartcount = new Subject<number>();
+ 
 
-  getcartCounter() {
-    return this.items.length;
+  // getcartCounter() {
+  //   return this.items.length;
+  // }
+
+  removeItem(product:any){
+    this.items.map((a:any,index:any)=>{
+      if(product.id===a.id){
+        this.items.splice(index,1)
+      }
+    })
   }
 
 

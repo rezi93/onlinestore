@@ -12,7 +12,9 @@ import { PruductService } from '../service/pruduct.service';
 export class CartComponent implements OnInit {
 
   cartItems: IProduct[] = []
-  cartCount: any;
+  cartCount: number = 0;
+  @Output() cartCountChange: EventEmitter<number> = new EventEmitter<number>();
+  
   constructor(private Service: PruductService) {
 
   }
@@ -20,7 +22,16 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.cartItems=this.Service.getItems();
     this.cartCount = this.cartItems.length;
-    console.log(this.cartItems)
+    this.cartCountChange.emit(this.cartCount);
+   
+    
   }
+
+  removeitem(item:any){
+    this.Service.removeItem(item)
+  }
+  
+
+ 
 
 }

@@ -25,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
 
     this.getProductById(this.productID);
 
-    //  this.getCart(this.productID)
+    
 
 
   }

@@ -9,12 +9,12 @@
     <p-tabView [(activeIndex)]="activeIndex2" [scrollable]="true">
         <p-tabPanel *ngFor="let tab of scrollableTabs;" [header]="tab.label">
             
-            <p-card header="" [style]="{'width': '500px', 'height':'200px', 'margin-top': '2em', 'margin-left':'2rem','display':'grid','grid-template-columns':' auto auto '}" *ngFor="let items of catproduct">
+            <p-card header="" [style]="{'width': '500px', 'height':'200px', 'margin-top': '2em', 'margin-left':'2rem','display':'grid','grid-template-columns':' auto auto '}" >
 
               
-                    <p>{{items.category}}</p>
+                    <p>{{catproduct}}</p>
                   
-                  <img src="{{items.thumbnail}}" class="picture">
+                  <!-- <img src="{{catproduct.thumbnail}}" class="picture"> -->
                 
                
                 

@@ -17,6 +17,11 @@ export class AppComponent implements OnInit {
     ngOnInit() {
      
     }
+    cartCount: number = 0;
+
+  updateCartCount(count: number): void {
+    this.cartCount = count;
+  }
 
     
 }

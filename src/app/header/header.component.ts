@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit,EventEmitter,Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { ICategory } from '../interface/product';
 import { IProduct,IMenuItem } from '../interface/product';
@@ -10,10 +10,12 @@ import {InputTextModule} from 'primeng/inputtext';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit  {
+  @Input() cartItems: IProduct[] = [];
+@Input() Count:number=0
   category:IMenuItem[]=[]
   product:IProduct[]=[];
-  cartItems: IProduct[] = []
-  cartCount: any;
+   
+  
 
 
   constructor(private _service: PruductService,
@@ -23,8 +25,7 @@ export class HeaderComponent implements OnInit  {
 
     ngOnInit(): void {
      
-    this.cartCount = this.cartItems.length;
-    console.log(this.cartItems)
+    
       
     }
 
